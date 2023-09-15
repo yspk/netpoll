@@ -70,6 +70,8 @@ type Connection interface {
 	AddCloseCallback(callback CloseCallback) error
 
 	UpdateContext(ctx context.Context) error
+
+	Context() context.Context
 }
 
 // Conn extends net.Conn, but supports getting the conn's fd.

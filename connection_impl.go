@@ -101,6 +101,10 @@ func (c *connection) UpdateContext(ctx context.Context) error {
 	return nil
 }
 
+func (c *connection) Context() context.Context {
+	return c.ctx
+}
+
 // ------------------------------------------ implement zero-copy reader ------------------------------------------
 
 // Next implements Connection.
