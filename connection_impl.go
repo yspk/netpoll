@@ -18,6 +18,7 @@
 package netpoll
 
 import (
+	"context"
 	"sync"
 	"sync/atomic"
 	"syscall"
@@ -92,6 +93,11 @@ func (c *connection) SetWriteTimeout(timeout time.Duration) error {
 	if timeout >= 0 {
 		c.writeTimeout = timeout
 	}
+	return nil
+}
+
+func (c *connection) UpdateContext(ctx context.Context) error {
+	c.ctx = ctx
 	return nil
 }
 

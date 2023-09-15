@@ -15,6 +15,7 @@
 package netpoll
 
 import (
+	"context"
 	"net"
 	"time"
 )
@@ -67,6 +68,8 @@ type Connection interface {
 	// the local resources, which bound to the idle connection, when hangup by the peer. No need another goroutine
 	// to polling check connection status.
 	AddCloseCallback(callback CloseCallback) error
+
+	UpdateContext(ctx context.Context) error
 }
 
 // Conn extends net.Conn, but supports getting the conn's fd.
